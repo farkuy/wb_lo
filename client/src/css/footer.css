@@ -1,10 +1,17 @@
 @import "clearCss.css";
 
-footer {
-    background-color: #6725A8;
+
+
+.maine__footer {
     width: 100%;
-    height: 16px;
+    background: #6725A8;
+    justify-content: center;
+    align-items: center;
+    gap: 27px;
+    display: flex;
+    justify-items: center;
     padding: 24px;
+    flex-direction: column;
 }
 
 .center__footer {
@@ -15,8 +22,29 @@ footer {
 .text_footer {
     color: rgba(255, 255, 255, 0.70);
     font-size: 13px;
-    font-family: Segoe UI;
+    font-family: 'Segoe UI', sans-serif;
     font-weight: 400;
     line-height: 16px;
-    word-wrap: break-word
+    word-wrap: break-word;
 }
+
+.mobile__icons{
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 13px;
+}
+
+.mobile__icons img {
+    margin: 20px 0;
+
+}
+
+@media (min-width: 701px) {
+    .mobile__icons {
+        display: none;
+    }
+}
+
+
+
