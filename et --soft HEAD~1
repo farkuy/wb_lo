@@ -1,0 +1,29 @@
+[33mcommit 8901338072e8a98391442c92293d6da17a28bfb9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: farkuy <127094746+farkuy@users.noreply.github.com>
+Date:   Sat Sep 30 21:21:06 2023 +0300
+
+    The checkout window has been created
+
+[33mcommit 7ff4029d772697681d951561b2f79698e3ad10ab[m
+Author: farkuy <127094746+farkuy@users.noreply.github.com>
+Date:   Wed Sep 27 23:30:50 2023 +0300
+
+    moving the header and footer to the main index.html. Adaptive for mobile devices, start of layout of the main part
+
+[33mcommit ff2ebbe170a8e7ed958d44ccc254580bfeb0bccb[m
+Author: farkuy <127094746+farkuy@users.noreply.github.com>
+Date:   Wed Sep 27 00:19:31 2023 +0300
+
+    Creating a header
+
+[33mcommit 13d0ac6d737a7a023101639c14e812a773d64636[m
+Author: farkuy <127094746+farkuy@users.noreply.github.com>
+Date:   Wed Sep 27 00:18:52 2023 +0300
+
+    Creating a header
+
+[33mcommit 5cdd49493d8475c7f1e36d98a301d65b2409ba33[m
+Author: farkuy <127094746+farkuy@users.noreply.github.com>
+Date:   Tue Sep 26 12:51:10 2023 +0300
+
+    first commit
