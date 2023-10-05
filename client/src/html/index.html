@@ -408,14 +408,23 @@
                         <div class="redux"></div>
                     </div>
                     <div class="top__input top__input__margin">
-                        <input placeholder="Имя" class="input__info__top input__info__style" type="text"/>
-                        <input placeholder="Фамилия" class="input__info__top input__info__style" type="text"/>
+                        <div class="input__info__top">
+                            <input id="inputName" placeholder="Имя" class="input__info__top input__info__style" type="text"/>
+                            <div class="dop__correct"></div>
+                        </div>
+                        <div class="input__info__top">
+                            <input id="inputSureName" placeholder="Фамилия" class="input__info__top input__info__style" type="text"/>
+                            <div class="dop__correct"></div>
+                        </div>
                     </div>
                     <div class="top__input">
-                        <input placeholder="Почта" class="bot__info__input input__info__style" type="text"/>
-                        <input placeholder="Телефон" class="bot__info__input input__info__style" type="text"/>
+                        <div class="input__info__top">
+                            <input id="inputMail" placeholder="Почта" class="bot__info__input input__info__style" type="text"/>
+                            <div class="dop__correct"></div>
+                        </div>
+                        <input id="inputPoneNumber" placeholder="Телефон" class="bot__info__input input__info__style" type="text"/>
                         <div class="inn">
-                            <input placeholder="ИНН" class="bot__info__input input__info__style for__inn___input" type="text"/>
+                            <input id="inputInn" placeholder="ИНН" class="bot__info__input input__info__style for__inn___input" type="text"/>
                             <div class="for__inn">Для таможенного оформления</div>
                         </div>
                     </div>
@@ -543,5 +552,6 @@
         <img src="../img/footerMobile/profile.png"/>
     </div>
 </footer>
+<script type="module" src="../js/maine.js"></script>
 </body>
 </html>
