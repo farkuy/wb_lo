@@ -8,7 +8,7 @@ export function checkCorrectInputSureName(inputSureNameOrName) {
     const isLatin = /^[a-zA-Z]+$/i.test(elementText)
     const nextElem = inputSureNameOrName.nextElementSibling;
 
-    if (elementText === '') {
+    if (elementText === '' && nextElem.innerText === '') {
         inputSureNameOrName.style.color = 'black'
         nextElem.innerText = ''
         return;

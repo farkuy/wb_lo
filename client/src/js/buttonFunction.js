@@ -1,7 +1,7 @@
 "use strict"
 
 import {searchElement, setCheckBoxValue} from "./functions.js";
-import {allCheck, checkBoxPayNow} from "./conts.js";
+import {allCheck, arrEmpty, checkBoxPayNow} from "./conts.js";
 import {showPrice} from "./displayFunction.js";
 
 export function shortenProduct(shortenBtn) {
@@ -181,5 +181,16 @@ export function payNow() {
         btnPayText.textContent = `Оплатить ${sumWithSale}`
     } else {
         btnPayText.textContent = 'Заказать'
+    }
+}
+
+export function orderProducts() {
+    const infoDelivery = document.getElementsByClassName('inputBlock');
+    for (let i = 0; i < infoDelivery.length; ++i) {
+        const input = infoDelivery[i].querySelector('input');
+        if (input.value === '') {
+            input.nextElementSibling.innerText = arrEmpty[i];
+            input.nextElementSibling.style.color = "#F55123"
+        }
     }
 }

@@ -12,9 +12,9 @@ import {
     allCheck, allBtnCheck, checkBoxPayNow
 } from './conts.js';
 import {checkCorrectInputSureName, checkCorrectMail, checkInputInn, checkInputPhoneNumber} from './inputFunctions.js'
-import {allCheckBoxChecked, increaseProduct, payNow, shortenProduct} from "./buttonFunction.js";
+import {allCheckBoxChecked, increaseProduct, orderProducts, payNow, shortenProduct} from "./buttonFunction.js";
 import {showPrice} from "./displayFunction.js";
-import {searchElement, separateNumbers} from "./functions.js";
+import {searchElement} from "./functions.js";
 
 inputName.addEventListener('blur', () => {
     checkCorrectInputSureName(inputName)
@@ -56,10 +56,17 @@ inputPhone.addEventListener("input", (e) => {
     if (elementText[0] !== '+') {
         inputPhone.value = `+${elementText.replace(correct, '').slice(0)} `
     } else {
-        inputPhone.value = elementText.slice(0, 1) + elementText.replace(correct, '').slice(1)
+        inputPhone.value = elementText.replace(correct, '').slice(0)
     }
 
-    if (elementText.length == 6 || elementText.length == 10 || elementText.length == 13) {
+    if (elementText.length === 1 && elementText.replace(correct, '').slice(0).length === 0) {
+        inputPhone.value = '+'
+    }
+    if (elementText.length === 1 && elementText[0] === '+') {
+        inputPhone.value = '+'
+    }
+
+    if (elementText.length == 2 || elementText.length == 6 || elementText.length == 10 || elementText.length == 13) {
         inputPhone.value = `${elementText} `
     }
     if (e.data === null || e.inputType === 'deleteContentBackward') {
@@ -83,7 +90,7 @@ inputInn.addEventListener("input", () => {
 })
 
 order.addEventListener('click', () => {
-
+    orderProducts(order)
 })
 allMinus.forEach((minus) => {
     minus.addEventListener('click', () => {
