@@ -9,11 +9,12 @@ import {
     order,
     allMinus,
     allPlus,
-    allCheck, allBtnCheck
+    allCheck, allBtnCheck, checkBoxPayNow
 } from './conts.js';
 import {checkCorrectInputSureName, checkCorrectMail, checkInputInn, checkInputPhoneNumber} from './inputFunctions.js'
-import {allCheckBoxChecked, increaseProduct, shortenProduct} from "./buttonFunction.js";
+import {allCheckBoxChecked, increaseProduct, payNow, shortenProduct} from "./buttonFunction.js";
 import {showPrice} from "./displayFunction.js";
+import {searchElement, separateNumbers} from "./functions.js";
 
 inputName.addEventListener('blur', () => {
     checkCorrectInputSureName(inputName)
@@ -97,16 +98,35 @@ allPlus.forEach((plus) => {
 })
 
 allBtnCheck.addEventListener('click', () => {
-    allCheckBoxChecked(allBtnCheck)
+    allCheckBoxChecked(allBtnCheck);
+    showPrice();
 })
 
 allCheck.forEach((check) => {
+    const elemCheck = searchElement(check, '.check__box__hidden');
+    const infoBox = searchElement(check, '.product');
+    const count = infoBox.querySelector('.quantity__regular__number')
+    const baseBucksWithSale = infoBox.querySelector('.with__sale__hidden').value
+    const baseBucksOfSale = infoBox.querySelector('.off__sale__hidden').value
+
+    let price = {
+        widthSale: Math.floor(baseBucksWithSale * Number(count.innerText)),
+        ofSale: Math.floor(baseBucksOfSale * Number(count.innerText)),
+    }
+    elemCheck.value = JSON.stringify(price);
+
     check.addEventListener('click', () => {
         if (check.checked !== true) {
             allBtnCheck.checked = false
         }
-        console.log(check.value)
+    })
+
+    check.addEventListener('change', () =>{
+        showPrice();
+        payNow()
     })
 })
+
+checkBoxPayNow.addEventListener('click', payNow)
 
 showPrice()

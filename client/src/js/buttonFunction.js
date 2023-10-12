@@ -1,10 +1,18 @@
 "use strict"
 
-import {setCheckBoxValue} from "./functions.js";
-import {allCheck} from "./conts.js";
+import {searchElement, setCheckBoxValue} from "./functions.js";
+import {allCheck, checkBoxPayNow} from "./conts.js";
+import {showPrice} from "./displayFunction.js";
 
 export function shortenProduct(shortenBtn) {
     const nextElem = shortenBtn.nextElementSibling;
+    const quantityElem = searchElement(shortenBtn, '.quantity');
+    const product = searchElement(shortenBtn, '.product');
+    const plus = quantityElem.querySelector('.plus');
+    const totalQuantity = quantityElem.querySelector('.total__quantity').value;
+    const textQunty = quantityElem.querySelector('.quantity__only__left')
+    plus.disabled = false;
+    plus.style.color = '#000000'
 
     if (Number(nextElem.textContent) > 0) {
         nextElem.textContent = `${Number(nextElem.textContent) - 1}`
@@ -16,7 +24,55 @@ export function shortenProduct(shortenBtn) {
         shortenBtn.style.color = '#000000'
     }
 
-    setCheckBoxValue(nextElem)
+    if (textQunty) {
+        textQunty.innerText = `Осталось ${Number(totalQuantity - nextElem.textContent)} шт`;
+    }
+
+    const imgSrc = product.getElementsByTagName("img")[0].src;
+    const paymentMethodBlock = document.querySelector('.payment__method ')
+    const imgs = paymentMethodBlock.querySelectorAll('img');
+
+    const thisImg = Array.from(imgs).filter((img) => {
+        if (img.src === imgSrc) return true
+    })
+
+    if (thisImg.length === 1) {
+        const img = thisImg[0]
+        img.style.display = 'flex'
+        if (Number(nextElem.textContent) > 1 && img.previousElementSibling !== null) {
+            img.previousElementSibling.textContent = nextElem.textContent;
+        }
+        if (Number(nextElem.textContent) === 1 && img.previousElementSibling !== null) {
+            img.previousElementSibling.textContent = ''
+        }
+        if (Number(nextElem.textContent) === 0 && img.previousElementSibling !== null) {
+            img.style.display = 'none';
+        }
+    }
+    else {
+        const imgSecond = thisImg[thisImg.length - 1]
+        const imgFirst = thisImg[0]
+
+        const dateElem = document.getElementById('sevenFebr')
+        if (Number(nextElem.textContent) < 185) {
+            dateElem.style.display = 'none';
+            Number(nextElem.textContent) === 1
+                ? imgFirst.previousElementSibling.textContent = ''
+                : Number(nextElem.textContent) <= 0
+                ? imgFirst.style.display = 'none'
+                : imgFirst.previousElementSibling.textContent = Number(nextElem.textContent);
+        } else {
+            imgFirst.style.display === 'flex'
+            const nextElemProductCount = Number(nextElem.textContent) - 184
+            nextElemProductCount === 1
+            ? imgSecond.previousElementSibling.textContent = ''
+            : imgSecond.previousElementSibling.textContent =  nextElemProductCount;
+        }
+    }
+
+    setCheckBoxValue(nextElem);
+    showPrice();
+    payNow()
 }
 
 export function increaseProduct(increaseBtn) {
@@ -24,7 +80,59 @@ export function increaseProduct(increaseBtn) {
 
     nextElem.textContent = `${Number(nextElem.textContent) + 1}`
 
+    const quantityElem = searchElement(increaseBtn, '.quantity');
+    const minus = quantityElem.querySelector('.minus')
+    const totalQuantity = quantityElem.querySelector('.total__quantity').value;
+    const textQunty = quantityElem.querySelector('.quantity__only__left')
+    const product = searchElement(increaseBtn, '.product');
+
+    minus.disabled = false;
+    minus.style.color = '#000000'
+
+    if (nextElem.textContent === totalQuantity) {
+        increaseBtn.style.color = '#00000033'
+        increaseBtn.disabled = true
+    } else {
+        increaseBtn.style.color = '#000000'
+        increaseBtn.disabled = false
+    }
+
+    if (textQunty) {
+        textQunty.innerText = `Осталось ${Number(totalQuantity - nextElem.textContent)} шт`;
+    }
+
+    const imgSrc = product.getElementsByTagName("img")[0].src;
+    const paymentMethodBlock = document.querySelector('.payment__method ')
+    const imgs = paymentMethodBlock.querySelectorAll('img');
+
+    const thisImg = Array.from(imgs).filter((img) => {
+        if (img.src === imgSrc) return true
+    })
+
+    if (thisImg.length === 1) {
+        const img = thisImg[0]
+        img.style.display = 'flex'
+        if (Number(nextElem.textContent) > 1 && img.previousElementSibling !== null) {
+            img.previousElementSibling.textContent = nextElem.textContent;
+        }
+        if (Number(nextElem.textContent) === 1 && img.previousElementSibling !== null) {
+            img.previousElementSibling.textContent = ''
+        }
+        if (Number(nextElem.textContent) === 0 && img.previousElementSibling !== null) {
+            img.style.display = 'none';
+        }
+    }
+    else {
+        const img = thisImg[thisImg.length - 1]
+        if (Number(nextElem.textContent) >= 184) {
+            img.style.display = 'flex'
+            img.previousElementSibling.textContent = Number(nextElem.textContent) - 184
+        }
+    }
+
     setCheckBoxValue(nextElem)
+    showPrice()
+    payNow()
 }
 
 export function allCheckBoxChecked(allBtnCheck) {
@@ -32,5 +140,15 @@ export function allCheckBoxChecked(allBtnCheck) {
         allCheck.forEach((check) => check.checked = true)
     } else {
         allCheck.forEach((check) => check.checked = false)
+    }
+}
+
+export function payNow() {
+    const btnPayText = document.querySelector('.pay__text__btn');
+    const sumWithSale = document.querySelector('.sum__with__sale').innerText
+    if (checkBoxPayNow.checked) {
+        btnPayText.textContent = `Оплатить ${sumWithSale}`
+    } else {
+        btnPayText.textContent = 'Заказать'
     }
 }

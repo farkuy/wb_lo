@@ -37,3 +37,6 @@ export function setCheckBoxValue(nextElem) {
     checkBox.value = price
 }
 
+export function separateNumbers(str, num = 3) {
+    return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}

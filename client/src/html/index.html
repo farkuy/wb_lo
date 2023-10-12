@@ -72,7 +72,7 @@
                 <div class="all__add">
                     <div class="check_box__all">
                         <div style="margin-right: 11px">
-                            <input checked class='check__box__hidden' type="checkbox" id="chkAll">
+                            <input checked class='check__box__hiddenAll' type="checkbox" id="chkAll">
                             <label for="chkAll">
                                 <svg class="galka" width="15px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -87,7 +87,7 @@
                     <div class="product uzctoon">
                         <div class="product__left">
                             <div class="photo__and__check">
-                                <div>
+                                <div class="mobile__check">
                                     <input checked class="check__box__hidden" type="checkbox" id="chk">
                                     <label for="chk">
                                         <svg class="galka" width="15px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,13 +123,14 @@
                         <div class="product__right">
                             <div class="quantity">
                                 <div class="quantity__regular">
-                                    <div class="minus">−</div>
+                                    <button class="minus">−</button>
                                     <div class="quantity__regular__number">1</div>
-                                    <div class="plus">+</div>
+                                    <button class="plus">+</button>
                                     <input value="1051" style="display: none" class="off__sale__hidden"/>
                                     <input value="522" style="display: none" class="with__sale__hidden"/>
                                 </div>
                                 <div class="quantity__only__left">Осталось 2 шт.</div>
+                                <input class="total__quantity" style="display: none" value="3" type="text">
                                 <div class="inline__icon">
                                     <svg class="heartSvg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="icon-20">
@@ -149,9 +150,19 @@
                             </div>
                             <div class="total__amount">
                                 <div class="total__amount__sum__without__sale">522  <span>сом</span> </div>
-                                <div>
+                                <div style="position: relative">
                                     <div class="total__amount__sum__with__sale">1051 сом</div>
                                     <div class="total__amount__vector"></div>
+                                    <div class="dop__info__hover">
+                                        <div class="Frame277132124" style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
+                                            <div class="55" style="color: #A0A0A4; font-size: 13px; font-family: Segoe UI; font-weight: 400; line-height: 16px; word-wrap: break-word">Скидка 55%</div>
+                                            <div class="10" style="color: #9797AF; font-size: 13px; font-family: Segoe UI; font-weight: 400; line-height: 16px; word-wrap: break-word">Скидка покупателя 10%</div>
+                                        </div>
+                                        <div class="Frame277132125" style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-end; gap: 8px; display: inline-flex">
+                                            <div class="300" style="color: black; font-size: 13px; font-family: Segoe UI; font-weight: 400; line-height: 16px; word-wrap: break-word">−300 сом</div>
+                                            <div class="30" style="color: black; font-size: 13px; font-family: Segoe UI; font-weight: 400; line-height: 16px; word-wrap: break-word">−30 сом</div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -160,7 +171,7 @@
                     <div class="product mobiSafe">
                         <div class="product__left">
                             <div class="photo__and__check">
-                                <div>
+                                <div class="mobile__check">
                                     <input checked class='check__box__hidden' type="checkbox" id="chk1">
                                     <label for="chk1">
                                         <svg class="galka" width="15px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -193,12 +204,13 @@
                         <div class="product__right">
                             <div class="quantity">
                                 <div class="quantity__regular">
-                                    <div class="minus">−</div>
+                                    <button class="minus">−</button>
                                     <div class="quantity__regular__number">200</div>
-                                    <div class="plus">+</div>
+                                    <button class="plus">+</button>
                                     <input value="11500.235" style="display: none" class="off__sale__hidden"/>
                                     <input value="10500.235" style="display: none" class="with__sale__hidden"/>
                                 </div>
+                                <input class="total__quantity" style="display: none" value="3000000" type="text">
                                 <div class="inline__icon">
                                     <svg class="heartSvg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="icon-20">
@@ -228,7 +240,7 @@
                     <div class="product faberCastle">
                         <div class="product__left">
                             <div class="photo__and__check">
-                                <div>
+                                <div class="mobile__check">
                                     <input checked class='check__box__hidden' type="checkbox" id="chk2">
                                     <label for="chk2">
                                         <svg class="galka" width="15px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -259,13 +271,14 @@
                         <div class="product__right">
                             <div class="quantity">
                                 <div class="quantity__regular">
-                                    <div class="minus">−</div>
+                                    <button class="minus">−</button>
                                     <div class="quantity__regular__number">1</div>
-                                    <div class="plus">+</div>
+                                    <button class="plus">+</button>
                                     <input value="950" style="display: none" class="off__sale__hidden"/>
                                     <input value="494" style="display: none" class="with__sale__hidden"/>
                                 </div>
                                 <div class="quantity__only__left">Осталось 2 шт.</div>
+                                <input class="total__quantity" style="display: none" value="3" type="text">
                                 <div class="inline__icon">
                                     <svg class="heartSvg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="icon-20">
@@ -450,6 +463,7 @@
                             </div>
                             <div class="core__info__delivery__date__photo">
                                 <div class="photo__date_card">
+                                    <div class="count__photo__date"></div>
                                     <img src="../img/products/UZctoon.png" height="56" width="40"/>
                                 </div>
                                 <div class="photo__date_card">
@@ -459,14 +473,12 @@
                                     <img src="../img/products/mobiSafe.png" height="56" width="40"/>
                                 </div>
                                 <div class="photo__date_card">
-                                    <div class="count__photo__date">
-                                        2
-                                    </div>
+                                    <div class="count__photo__date"></div>
                                     <img src="../img/products/faberCastle.png" height="56" width="40"/>
                                 </div>
                             </div>
                         </div>
-                        <div class="delivery__date__line__flex">
+                        <div id="sevenFebr" class="delivery__date__line__flex">
                             <div class="name__delivery__date__info">
                                 7—8 февраля
                             </div>
@@ -545,16 +557,16 @@
                         <div class="results__block">
                             <div class="results__all">
                                 <div class="results__all__text">Итого</div>
-                                <div class="results__all__text">2 101 063 <span class="crutch"> сом</span></div>
+                                <div class="results__all__text sum__with__sale">2 101 063 <span class="crutch"> сом</span></div>
                             </div>
                             <div class="dop__info_about__order">
                                 <div class="results__text results__flex">
                                     <div>203 товара</div>
-                                    <div>2 302 048 сом</div>
+                                    <div class="sum__of__sale">2 302 048 сом</div>
                                 </div>
                                 <div class="results__text results__flex">
                                     <div>Скидка</div>
-                                    <div>−200 985 сом</div>
+                                    <div class="sale__total__sum">−200 985 сом</div>
                                 </div>
                                 <div class="results__text results__flex">
                                     <div>Доставка</div>
@@ -608,7 +620,14 @@
                                 <div class="delivery__free">
                                     <div class="delivery__free__pre">
                                         <div class="pay__flex">
-                                            <img src="../img/maine/checkbox.png" height="22" width="22"/>
+                                            <div>
+                                                <input class="check__box__hidden__pay" type="checkbox" id="payNow" value="{&quot;widthSale&quot;:522,&quot;ofSale&quot;:1051}">
+                                                <label for="payNow">
+                                                    <svg class="galka" width="15px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </label>
+                                            </div>
                                             <div class="pay__text">Списать оплату сразу</div>
                                         </div>
                                         <div class="pay__text">Спишем оплату с карты при получении</div>
@@ -618,7 +637,7 @@
                         </div>
                         <div class="order__box">
                             <button class="button__order" id="buttonOder">
-                                <div class="Text" style="align-self: stretch; text-align: center; color: white; font-size: 16px; font-family: Segoe UI; font-weight: 700; line-height: 24px; word-wrap: break-word">Заказать</div>
+                                <div class="pay__text__btn" style="align-self: stretch; text-align: center; color: white; font-size: 16px; font-family: Segoe UI; font-weight: 700; line-height: 24px; word-wrap: break-word">Заказать</div>
                             </button>
                             <div class="order__agreement">
                                 <img src="../img/maine/galina.png" height="24" width="13"/>
