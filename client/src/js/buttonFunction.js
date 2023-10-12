@@ -70,6 +70,16 @@ export function shortenProduct(shortenBtn) {
         }
     }
 
+    const orHidden = document.getElementById('fiveFiber');
+    let allImg = orHidden.querySelectorAll('img')
+    allImg = Array.from(allImg).filter((img) => {
+        console.log(32)
+        if (img.style.display === 'none') return true
+    })
+
+    if (allImg.length === 3)
+        orHidden.style.display = 'none'
+
     setCheckBoxValue(nextElem);
     showPrice();
     payNow()
@@ -123,12 +133,33 @@ export function increaseProduct(increaseBtn) {
         }
     }
     else {
-        const img = thisImg[thisImg.length - 1]
-        if (Number(nextElem.textContent) >= 184) {
-            img.style.display = 'flex'
-            img.previousElementSibling.textContent = Number(nextElem.textContent) - 184
+        const imgSecond = thisImg[thisImg.length - 1]
+        const imgFirst = thisImg[0]
+
+        const dateElem = document.getElementById('sevenFebr')
+        if (Number(nextElem.textContent) > 184) {
+            dateElem.style.display = 'flex'
+            imgSecond.style.display = 'flex'
+            Number(nextElem.textContent) - 184 === 1
+            ? imgSecond.previousElementSibling.textContent = ''
+            : imgSecond.previousElementSibling.textContent = Number(nextElem.textContent) - 184
+        } else {
+            imgFirst.style.display = 'flex'
+            const nextElemProductCount = Number(nextElem.textContent)
+            nextElemProductCount === 1
+                ? imgFirst.previousElementSibling.textContent = ''
+                : imgFirst.previousElementSibling.textContent =  Number(nextElem.textContent);
         }
     }
+
+    const orHidden = document.getElementById('fiveFiber');
+    let allImg = orHidden.querySelectorAll('img')
+    allImg = Array.from(allImg).filter((img) => {
+        if (img.style.display === 'none') return true
+    })
+
+    if (allImg.length !== 3)
+        orHidden.style.display = 'flex'
 
     setCheckBoxValue(nextElem)
     showPrice()

@@ -116,8 +116,56 @@ allCheck.forEach((check) => {
     elemCheck.value = JSON.stringify(price);
 
     check.addEventListener('click', () => {
+        const prod = searchElement(check, '.photo__and__check')
+        const imgSrc = prod.querySelector('img').src
+        const paymentMethodBlock = document.querySelector('.payment__method ')
+        const imgs = paymentMethodBlock.querySelectorAll('img');
+
         if (check.checked !== true) {
             allBtnCheck.checked = false
+
+            const thisImg = Array.from(imgs).filter((img) => {
+                if (img.src === imgSrc) return true
+            })
+
+            if (thisImg.length !== 1) {
+                const dateElem = document.getElementById('sevenFebr')
+                dateElem.style.display = 'none'
+            }
+            for (let img of thisImg) {
+                img.closest('div').style.display = 'none'
+            }
+
+            const orHidden = document.getElementById('fiveFiber');
+            let allImg = orHidden.querySelectorAll('.photo__date_card')
+            allImg = Array.from(allImg).filter((img) => {
+                if (img.style.display === 'none') return true
+            })
+
+            if (allImg.length === 3)
+                orHidden.style.display = 'none'
+        } else {
+
+            const thisImg = Array.from(imgs).filter((img) => {
+                if (img.src === imgSrc) return true
+            })
+
+            if (thisImg.length !== 1) {
+                const dateElem = document.getElementById('sevenFebr')
+                dateElem.style.display = 'flex'
+            }
+            for (let img of thisImg) {
+                img.closest('div').style.display = 'flex'
+            }
+
+            const orHidden = document.getElementById('fiveFiber');
+            let allImg = orHidden.querySelectorAll('.photo__date_card')
+            allImg = Array.from(allImg).filter((img) => {
+                if (img.style.display === 'none') return true
+            })
+
+            if (allImg.length !== 3)
+                orHidden.style.display = 'flex'
         }
     })
 
