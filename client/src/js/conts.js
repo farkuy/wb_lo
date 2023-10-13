@@ -10,6 +10,8 @@ export const deliveryDateAllElems = document.querySelector('.delivery__date');
 export const showOrHiddenArrow = document.querySelectorAll('.showOrHiddenArrow');
 export const freeHover = document.querySelectorAll('.dop__info__checkPoint');
 
+export const deleteSvg = document.querySelectorAll('.trashSvg')
+
 
 export const inputName = document.getElementById('inputName');
 export const inputSureName = document.getElementById('inputSureName');

@@ -9,7 +9,7 @@ import {
     order,
     allMinus,
     allPlus,
-    allCheck, allBtnCheck, checkBoxPayNow, showOrHiddenArrow, freeHover
+    allCheck, allBtnCheck, checkBoxPayNow, showOrHiddenArrow, freeHover, deleteSvg
 } from './conts.js';
 import {checkCorrectInputSureName, checkCorrectMail, checkInputInn, checkInputPhoneNumber} from './inputFunctions.js'
 import {allCheckBoxChecked, increaseProduct, orderProducts, payNow, shortenProduct} from "./buttonFunction.js";
@@ -123,6 +123,48 @@ allPlus.forEach((plus) => {
 allBtnCheck.addEventListener('click', () => {
     allCheckBoxChecked(allBtnCheck);
     showPrice();
+
+})
+
+deleteSvg.forEach((svg) => {
+    svg.addEventListener('click', () => {
+        const prod = searchElement(svg, '.product')
+        prod.style.display = 'none'
+
+        const check = prod.querySelector('.check__box__hidden')
+        check.checked = false;
+        showPrice()
+
+        const imgSrc = prod.querySelector('img').src
+        const paymentMethodBlock = document.querySelector('.payment__method ')
+        const imgs = paymentMethodBlock.querySelectorAll('img');
+        const thisImg = Array.from(imgs).filter((img) => {
+            if (img.src === imgSrc) return true
+        })
+        if (thisImg.length !== 1) {
+            const dateElem = document.getElementById('sevenFebr')
+            dateElem.style.display = 'none'
+        }
+        for (let img of thisImg) {
+            img.closest('div').style.display = 'none'
+        }
+
+        const orHidden = document.getElementById('fiveFiber');
+        let allImg = orHidden.querySelectorAll('.photo__date_card')
+        allImg = Array.from(allImg).filter((img) => {
+            if (img.style.display === 'none') return true
+        })
+
+        if (allImg.length === 3)
+            orHidden.style.display = 'none'
+
+        const totalCountInBasket = document.querySelector('.total__in__the__basket');
+        totalCountInBasket.innerText = Number(totalCountInBasket.innerText) - 1;
+        if (Number(totalCountInBasket.innerText) === 0) {
+            totalCountInBasket.innerText = '';
+            document.querySelector('.red__circle').style.display = 'none'
+        }
+    })
 
 })
 

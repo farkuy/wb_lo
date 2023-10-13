@@ -1296,3 +1296,7 @@ input:checked + label {
 .info__hidden__center {
     display: none;
 }
+
+svg:hover {
+    cursor: pointer;
+}
