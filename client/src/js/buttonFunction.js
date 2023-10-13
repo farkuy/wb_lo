@@ -169,8 +169,14 @@ export function increaseProduct(increaseBtn) {
 export function allCheckBoxChecked(allBtnCheck) {
     if (allBtnCheck.checked === true) {
         allCheck.forEach((check) => check.checked = true)
+        const totalCountInBasket = document.querySelector('.total__in__the__basket');
+        totalCountInBasket.innerText = '3';
+        document.querySelector('.red__circle').style.display = 'flex'
     } else {
         allCheck.forEach((check) => check.checked = false)
+        const totalCountInBasket = document.querySelector('.total__in__the__basket');
+        totalCountInBasket.innerText = '';
+        document.querySelector('.red__circle').style.display = 'none'
     }
 }
 

@@ -1228,3 +1228,12 @@ input:checked + label {
     justify-content: flex-start;
     align-items: flex-start; gap: 8px;
 }
+
+.all__add_count {
+    display: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    word-wrap: break-word;
+}

@@ -9,11 +9,11 @@ import {
     order,
     allMinus,
     allPlus,
-    allCheck, allBtnCheck, checkBoxPayNow
+    allCheck, allBtnCheck, checkBoxPayNow, showOrHiddenArrow
 } from './conts.js';
 import {checkCorrectInputSureName, checkCorrectMail, checkInputInn, checkInputPhoneNumber} from './inputFunctions.js'
 import {allCheckBoxChecked, increaseProduct, orderProducts, payNow, shortenProduct} from "./buttonFunction.js";
-import {showPrice} from "./displayFunction.js";
+import {showOrHiddenBlock, showPrice} from "./displayFunction.js";
 import {searchElement} from "./functions.js";
 
 inputName.addEventListener('blur', () => {
@@ -89,6 +89,12 @@ inputInn.addEventListener("input", () => {
     }
 })
 
+showOrHiddenArrow.forEach((arrow) => {
+    arrow.addEventListener('click', () => {
+        showOrHiddenBlock(arrow)
+    })
+})
+
 order.addEventListener('click', () => {
     orderProducts(order)
 })
@@ -107,6 +113,7 @@ allPlus.forEach((plus) => {
 allBtnCheck.addEventListener('click', () => {
     allCheckBoxChecked(allBtnCheck);
     showPrice();
+
 })
 
 allCheck.forEach((check) => {
@@ -151,6 +158,13 @@ allCheck.forEach((check) => {
 
             if (allImg.length === 3)
                 orHidden.style.display = 'none'
+
+            const totalCountInBasket = document.querySelector('.total__in__the__basket');
+            totalCountInBasket.innerText = Number(totalCountInBasket.innerText) - 1;
+            if (Number(totalCountInBasket.innerText) === 0) {
+                totalCountInBasket.innerText = '';
+                document.querySelector('.red__circle').style.display = 'none'
+            }
         } else {
 
             const thisImg = Array.from(imgs).filter((img) => {
@@ -173,6 +187,10 @@ allCheck.forEach((check) => {
 
             if (allImg.length !== 3)
                 orHidden.style.display = 'flex'
+
+            const totalCountInBasket = document.querySelector('.total__in__the__basket');
+            totalCountInBasket.innerText = Number(totalCountInBasket.innerText) + 1
+            document.querySelector('.red__circle').style.display = 'flex'
         }
     })
 
