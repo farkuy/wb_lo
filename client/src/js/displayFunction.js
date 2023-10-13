@@ -1,6 +1,6 @@
 "use strict"
 
-import {allCheck} from "./conts.js";
+import {allCheck, inputName} from "./conts.js";
 import {searchElement, separateNumbers} from "./functions.js";
 
 export function showPrice() {
@@ -85,6 +85,13 @@ export function showOrHiddenBlock(arrow) {
 
         }
     }
+}
 
-
+export function showUpPlaceHolder(elem) {
+    const upPlaceHolder = elem.previousElementSibling;
+    if (elem.value !== '') {
+        upPlaceHolder.style.display = 'flex'
+    } else {
+        upPlaceHolder.style.display = 'none'
+    }
 }

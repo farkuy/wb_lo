@@ -13,7 +13,7 @@ import {
 } from './conts.js';
 import {checkCorrectInputSureName, checkCorrectMail, checkInputInn, checkInputPhoneNumber} from './inputFunctions.js'
 import {allCheckBoxChecked, increaseProduct, orderProducts, payNow, shortenProduct} from "./buttonFunction.js";
-import {showOrHiddenBlock, showPrice} from "./displayFunction.js";
+import {showOrHiddenBlock, showPrice, showUpPlaceHolder} from "./displayFunction.js";
 import {searchElement} from "./functions.js";
 
 inputName.addEventListener('blur', () => {
@@ -24,6 +24,8 @@ inputName.addEventListener('input', () => {
     if (nextElem.innerText === `Укажите имя`) {
         checkCorrectInputSureName(inputName)
     }
+
+    showUpPlaceHolder(inputName)
 })
 
 inputSureName.addEventListener('blur', () => {
@@ -34,6 +36,8 @@ inputSureName.addEventListener('input', () => {
     if (nextElem.innerText === `Введите фамилию`) {
         checkCorrectInputSureName(inputSureName)
     }
+
+    showUpPlaceHolder(inputSureName)
 })
 
 inputMail.addEventListener("blur", () => {
@@ -44,6 +48,8 @@ inputMail.addEventListener("input", () => {
     if (nextElem.innerText === `Проверьте адрес электронной почты`) {
         checkCorrectMail(inputMail)
     }
+
+    showUpPlaceHolder(inputMail)
 })
 
 inputPhone.addEventListener("blur", () => {
@@ -77,6 +83,8 @@ inputPhone.addEventListener("input", (e) => {
     if (nextElem.innerText === `Формат: +9 999 999 99 99`) {
         checkInputPhoneNumber(inputPhone)
     }
+
+    showUpPlaceHolder(inputPhone)
 })
 
 inputInn.addEventListener("blur", () => {
@@ -87,6 +95,8 @@ inputInn.addEventListener("input", () => {
     if (nextElem.innerText === `Проверьте ИНН`) {
         checkInputInn(inputInn)
     }
+
+    showUpPlaceHolder(inputInn)
 })
 
 showOrHiddenArrow.forEach((arrow) => {

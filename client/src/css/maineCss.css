@@ -1027,6 +1027,22 @@ body {
     flex: 0 0 39.73%;
 }
 
+.inputBlock {
+    position: relative;
+}
+
+.dop__placeHolder {
+    position: absolute;
+    top: -12px;
+    z-index: 99999;
+    color: #9797AF;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    word-wrap: break-word;
+    display: none;
+}
+
 .top__input__margin {
     margin-bottom: 32px;
 }
