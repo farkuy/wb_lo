@@ -8,7 +8,7 @@ export const allCheck = document.querySelectorAll('.check__box__hidden');
 export const checkBoxPayNow = document.getElementById('payNow');
 export const deliveryDateAllElems = document.querySelector('.delivery__date');
 export const showOrHiddenArrow = document.querySelectorAll('.showOrHiddenArrow');
-
+export const freeHover = document.querySelectorAll('.dop__info__checkPoint');
 
 
 export const inputName = document.getElementById('inputName');

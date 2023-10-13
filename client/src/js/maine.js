@@ -9,12 +9,12 @@ import {
     order,
     allMinus,
     allPlus,
-    allCheck, allBtnCheck, checkBoxPayNow, showOrHiddenArrow
+    allCheck, allBtnCheck, checkBoxPayNow, showOrHiddenArrow, freeHover
 } from './conts.js';
 import {checkCorrectInputSureName, checkCorrectMail, checkInputInn, checkInputPhoneNumber} from './inputFunctions.js'
 import {allCheckBoxChecked, increaseProduct, orderProducts, payNow, shortenProduct} from "./buttonFunction.js";
 import {showOrHiddenBlock, showPrice, showUpPlaceHolder} from "./displayFunction.js";
-import {searchElement} from "./functions.js";
+import {getCoords, searchElement} from "./functions.js";
 
 inputName.addEventListener('blur', () => {
     checkCorrectInputSureName(inputName)
@@ -211,5 +211,65 @@ allCheck.forEach((check) => {
 })
 
 checkBoxPayNow.addEventListener('click', payNow)
+
+freeHover.forEach((free) => {
+    free.addEventListener('mouseover', (e) => {
+        const coord = getCoords(free)
+        const div = document.createElement('div');
+        const div2 = document.createElement('div');
+        div.className = 'border__green';
+        if (free.innerText === 'бесплатно') {
+            div2.innerText = 'Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно'
+            document.body.append(div);
+            div2.className = 'border__green__text';
+            div.append(div2)
+            div.style.height = '55px'
+        } else if (free.classList.contains('i')) {
+            let dop = document.querySelector('.info__hidden');
+            let clone = dop.cloneNode(true);
+            clone.style.display = 'inline-flex'
+            clone.firstElementChild.textContent = free.previousElementSibling.textContent
+            div.append(clone)
+            document.body.append(div);
+            div.style.top = `${coord.top + 35}` +"px";
+            div.style.left = `${coord.right - div.offsetWidth/2 - 16}` +"px"
+        }
+
+        if (free.classList.contains('dop__info__center')) {
+            div.style.top = `${coord.top + 35}` +"px";
+            div.style.left = `${coord.right - div.offsetWidth/2 - 16}` +"px"
+        } else {
+            const block = searchElement(free, '.dop__info__center__block')
+            if(free.innerText === 'бесплатно') {
+                const coordBlock = getCoords(block);
+                div.style.top = `${coordBlock.top + 45}` +"px";
+                div.style.left = `${coordBlock.left + (coordBlock.right - coordBlock.left)/2 - div.offsetWidth/2}` +"px"
+            } else {
+                let dop = document.querySelector('.info__hidden__center');
+                let clone = dop.cloneNode(true);
+                const coordBlock = getCoords(block);
+
+                clone.style.display = 'inline-flex'
+                div.append(clone);
+                document.body.append(div);
+                div.style.width = '230px'
+                div.style.height = '60px'
+                div.style.top = `${coordBlock.top + 65}` +"px";
+                div.style.left = `${coordBlock.left + (coordBlock.right - coordBlock.left)/2 - div.offsetWidth/2}` +"px"
+            }
+        }
+
+
+
+        if (window.innerWidth <= 700) {
+            div.style.left = `${window.innerWidth/2 - div.offsetWidth/2 }` +"px"
+        }
+    })
+
+    free.addEventListener('mouseleave', () => {
+        const cord = document.querySelector('.border__green');
+        cord.remove()
+    })
+})
 
 showPrice()
