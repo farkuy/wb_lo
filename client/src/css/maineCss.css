@@ -1130,6 +1130,7 @@ body {
     justify-content: flex-start;
     justify-items: center;
     position: relative;
+    width: 100%;
 }
 
 .payMethod__row {
@@ -1392,7 +1393,7 @@ svg:hover {
 }
 .modal-content-card {
     background-color: white;
-    width: 352px;
+    width: 30%;
     height: 300px;
     padding: 16px 22px 24px 22px;
     flex-direction: column;
@@ -1400,6 +1401,14 @@ svg:hover {
     align-items: flex-start;
     border-radius: 15px;
     display: none;
+}
+
+.row__dop__pay {
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width: 100%;
+
 }
 
 .closeCard{
@@ -1455,3 +1464,82 @@ svg:hover {
     word-wrap: break-word
 }
 
+.select_delivery_or_cur {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.point__tex {
+    color: black;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    word-wrap: break-word
+}
+.point__not__cur {
+    background-color: white;
+    display: flex;
+    width: 224px;
+    height: 34px;
+    border-radius: 20px;
+    border: 2px solid #CB11AB26;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+.cur__not__point{
+    background-color: white;
+    display: flex;
+    width: 224px;
+    height: 34px;
+    border-radius: 20px;
+    border: 2px solid #CB11AB;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.marg__btn {
+    margin: 0 4px;
+}
+
+.my__adress {
+    color: black;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    word-wrap: break-word
+}
+
+.colum__payMethod {
+    display: flex;
+    flex-direction: column;
+}
+
+.name__point {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word
+}
+
+.curier__delivery__block {
+
+}
+
+.point__map__block{
+    display: none;
+}
+
+.all__text__pont {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 910px) {
+    .modal-content-card {
+        width: 300px;
+    }
+}

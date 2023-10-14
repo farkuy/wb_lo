@@ -12,8 +12,16 @@ export const freeHover = document.querySelectorAll('.dop__info__checkPoint');
 export const deleteSvg = document.querySelectorAll('.trashSvg');
 export const payBtn = document.querySelectorAll('.pay__btn');
 export const totalModal = document.querySelector('.modal');
-export const modalCard = document.querySelector('.modal-content-card');
-export const closeCard = document.getElementById('closeCard');
+export const modalCard = document.getElementById('modal-content-card');
+export const modalPoint= document.getElementById('modal-content-point');
+
+export const closeCard = document.querySelectorAll('.closeCard');
+export const mapBtn = document.querySelectorAll('.btnMapPoint');
+export const point__not__cur = document.querySelector('.point__not__cur');
+export const cur__not__point = document.querySelector('.cur__not__point');
+export const pointBtn= document.getElementById('button__point__map');
+
+
 export const buttonSelectCard = document.querySelector('.button__point')
 
 

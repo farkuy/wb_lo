@@ -18,7 +18,7 @@ import {
     payBtn,
     totalModal,
     modalCard,
-    closeCard, buttonSelectCard
+    closeCard, buttonSelectCard, mapBtn, modalPoint, point__not__cur, cur__not__point, pointBtn
 } from './conts.js';
 import {checkCorrectInputSureName, checkCorrectMail, checkInputInn, checkInputPhoneNumber} from './inputFunctions.js'
 import {allCheckBoxChecked, increaseProduct, orderProducts, payNow, shortenProduct} from "./buttonFunction.js";
@@ -325,14 +325,18 @@ freeHover.forEach((free) => {
 
 payBtn.forEach((pay) => {
     pay.addEventListener('click', () => {
+        console.log(totalModal)
         totalModal.style.display = 'flex';
         modalCard.style.display = 'flex';
     })
 })
 
-closeCard.addEventListener('click', () => {
-    totalModal.style.display = 'none';
-    modalCard.style.display = 'none';
+closeCard.forEach((closeB) => {
+    closeB.addEventListener('click', () => {
+        totalModal.style.display = 'none';
+        modalCard.style.display = 'none';
+        modalPoint.style.display = 'none';
+    })
 })
 
 buttonSelectCard.addEventListener('click', () => {
@@ -357,6 +361,53 @@ buttonSelectCard.addEventListener('click', () => {
 
     totalModal.style.display = 'none';
     modalCard.style.display = 'none';
+})
+
+mapBtn.forEach((map) => {
+    map.addEventListener('click', () => {
+        totalModal.style.display = 'flex';
+        modalPoint.style.display = 'flex';
+    })
+})
+
+point__not__cur.addEventListener('click', () => {
+    point__not__cur.style.border = '2px solid #CB11AB';
+    cur__not__point.style.border = '2px solid #CB11AB26';
+
+    const point__map__block = document.querySelector('.point__map__block');
+    const curier__delivery__block = document.querySelector('.curier__delivery__block');
+    point__map__block.style.display = 'block'
+    curier__delivery__block.style.display = 'none'
+})
+
+cur__not__point.addEventListener('click', () => {
+    cur__not__point.style.border = '2px solid #CB11AB';
+    point__not__cur.style.border = '2px solid #CB11AB26';
+
+    const point__map__block = document.querySelector('.point__map__block');
+    const curier__delivery__block = document.querySelector('.curier__delivery__block');
+
+    curier__delivery__block.style.display = 'block'
+    point__map__block.style.display = 'none'
+})
+
+pointBtn.addEventListener('click', () => {
+    const allInput = modalPoint.querySelectorAll('input')
+    let src = ''
+    const text__map__point__controll = document.querySelectorAll('.text__map__point__controll')
+
+    for (let i of allInput) {
+        if(i.checked) {
+            src = i.value
+        }
+    }
+
+    for (let i of text__map__point__controll) {
+        i.innerText = src
+    }
+
+    totalModal.style.display = 'none';
+    modalPoint.style.display = 'none';
 })
 
 showPrice()
