@@ -73,7 +73,6 @@ export function shortenProduct(shortenBtn) {
     const orHidden = document.getElementById('fiveFiber');
     let allImg = orHidden.querySelectorAll('img')
     allImg = Array.from(allImg).filter((img) => {
-        console.log(32)
         if (img.style.display === 'none') return true
     })
 

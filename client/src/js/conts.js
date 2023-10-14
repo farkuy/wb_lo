@@ -9,8 +9,12 @@ export const checkBoxPayNow = document.getElementById('payNow');
 export const deliveryDateAllElems = document.querySelector('.delivery__date');
 export const showOrHiddenArrow = document.querySelectorAll('.showOrHiddenArrow');
 export const freeHover = document.querySelectorAll('.dop__info__checkPoint');
-
-export const deleteSvg = document.querySelectorAll('.trashSvg')
+export const deleteSvg = document.querySelectorAll('.trashSvg');
+export const payBtn = document.querySelectorAll('.pay__btn');
+export const totalModal = document.querySelector('.modal');
+export const modalCard = document.querySelector('.modal-content-card');
+export const closeCard = document.getElementById('closeCard');
+export const buttonSelectCard = document.querySelector('.button__point')
 
 
 export const inputName = document.getElementById('inputName');

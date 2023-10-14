@@ -9,7 +9,16 @@ import {
     order,
     allMinus,
     allPlus,
-    allCheck, allBtnCheck, checkBoxPayNow, showOrHiddenArrow, freeHover, deleteSvg
+    allCheck,
+    allBtnCheck,
+    checkBoxPayNow,
+    showOrHiddenArrow,
+    freeHover,
+    deleteSvg,
+    payBtn,
+    totalModal,
+    modalCard,
+    closeCard, buttonSelectCard
 } from './conts.js';
 import {checkCorrectInputSureName, checkCorrectMail, checkInputInn, checkInputPhoneNumber} from './inputFunctions.js'
 import {allCheckBoxChecked, increaseProduct, orderProducts, payNow, shortenProduct} from "./buttonFunction.js";
@@ -312,6 +321,42 @@ freeHover.forEach((free) => {
         const cord = document.querySelector('.border__green');
         cord.remove()
     })
+})
+
+payBtn.forEach((pay) => {
+    pay.addEventListener('click', () => {
+        totalModal.style.display = 'flex';
+        modalCard.style.display = 'flex';
+    })
+})
+
+closeCard.addEventListener('click', () => {
+    totalModal.style.display = 'none';
+    modalCard.style.display = 'none';
+})
+
+buttonSelectCard.addEventListener('click', () => {
+    const img = document.querySelectorAll('.inpt__card');
+    let src = ''
+    const imgCardsNow = document.querySelectorAll('.card__img')
+
+    for (let i of img) {
+        if(i.checked) {
+            src = i.value
+       }
+    }
+
+    for (let im of imgCardsNow) {
+        im.src = src
+        if (src === '../img/cards/mastercard.png' || src === '../img/cards/maestro.png') {
+            im.style.width = '18px'
+        }
+        else im.style.width = '30px'
+    }
+
+
+    totalModal.style.display = 'none';
+    modalCard.style.display = 'none';
 })
 
 showPrice()
